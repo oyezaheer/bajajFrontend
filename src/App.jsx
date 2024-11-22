@@ -20,7 +20,7 @@ function App() {
       };
 
       let bodyContent = apiInput;
-      let response = await fetch("http://localhost:2000/bfhl", {
+      let response = await fetch("https://bajajbackend-1jk6.onrender.com/bfhl", {
         method: "POST",
         body: bodyContent,
         headers: headersList,
