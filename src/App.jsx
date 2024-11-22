@@ -78,48 +78,48 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-teal-50 text-gray-900 flex items-center justify-center p-4">
       <div className="w-full max-w-2xl space-y-8">
-        <h1 className="text-3xl font-bold text-center text-blue-400">BFHL API Tester</h1>
-        
-        <div className="space-y-4 bg-gray-800 p-6 rounded-xl shadow-lg">
+        <h1 className="text-3xl font-bold text-center text-green-600">BFHL API Tester</h1>
+  
+        <div className="space-y-4 bg-white p-6 rounded-xl shadow-lg">
           <div className="space-y-2">
-            <label htmlFor="api-input" className="block text-sm font-medium text-gray-300">
+            <label htmlFor="api-input" className="block text-sm font-medium text-gray-700">
               API Input
             </label>
             <textarea
               id="api-input"
               value={apiInput}
               onChange={(e) => setApiInput(e.target.value)}
-              className={`w-full px-3 py-2 bg-gray-700 border rounded-md font-mono text-sm resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                errorMessage ? 'border-red-500' : 'border-gray-600'
+              className={`w-full px-3 py-2 bg-gray-100 border rounded-md font-mono text-sm resize-none focus:ring-2 focus:ring-green-500 focus:border-transparent ${
+                errorMessage ? 'border-red-500' : 'border-gray-300'
               }`}
               rows={4}
             />
-            {errorMessage && <p className="text-red-400 text-sm mt-1">{errorMessage}</p>}
+            {errorMessage && <p className="text-red-500 text-sm mt-1">{errorMessage}</p>}
           </div>
-
+  
           <button
             onClick={handleSubmit}
             disabled={isLoading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-offset-2 focus:ring-offset-white disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? 'Submitting...' : 'Submit'}
           </button>
         </div>
-
+  
         {responseData && (
-          <div className="space-y-6 bg-gray-800 p-6 rounded-xl shadow-lg">
+          <div className="space-y-6 bg-white p-6 rounded-xl shadow-lg">
             <div className="relative">
               <div
-                className="flex items-center justify-between border border-gray-700 rounded-md p-3 bg-gray-700 cursor-pointer"
+                className="flex items-center justify-between border border-gray-300 rounded-md p-3 bg-gray-100 cursor-pointer"
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
               >
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium">Multi Filter</span>
                   <div className="flex flex-wrap items-center gap-1">
                     {selectedFilters.map(filter => (
-                      <span key={filter} className="text-xs bg-gray-600 rounded px-2 py-1">
+                      <span key={filter} className="text-xs bg-green-100 text-green-700 rounded px-2 py-1">
                         {filterOptions.find(option => option.value === filter).label}
                       </span>
                     ))}
@@ -128,12 +128,12 @@ function App() {
                 <span className={`text-sm transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}>▼</span>
               </div>
               {isDropdownOpen && (
-                <div className="absolute z-10 w-full mt-1 bg-gray-700 border border-gray-600 rounded-md shadow-lg">
+                <div className="absolute z-10 w-full mt-1 bg-gray-100 border border-gray-300 rounded-md shadow-lg">
                   {filterOptions.map((option) => (
                     <div
                       key={option.value}
-                      className={`px-4 py-2 hover:bg-gray-600 cursor-pointer transition-colors duration-150 ${
-                        selectedFilters.includes(option.value) ? 'bg-gray-600' : ''
+                      className={`px-4 py-2 hover:bg-green-100 cursor-pointer transition-colors duration-150 ${
+                        selectedFilters.includes(option.value) ? 'bg-green-100' : ''
                       }`}
                       onClick={() => handleFilterChange(option.value)}
                     >
@@ -149,10 +149,10 @@ function App() {
                 </div>
               )}
             </div>
-
+  
             <div className="space-y-2">
-              <h2 className="text-lg font-semibold text-blue-400">Filtered Response</h2>
-              <pre className="bg-gray-700 p-4 rounded-md text-sm overflow-auto max-h-60 whitespace-pre-wrap break-words">
+              <h2 className="text-lg font-semibold text-green-600">Filtered Response</h2>
+              <pre className="bg-gray-100 p-4 rounded-md text-sm overflow-auto max-h-60 whitespace-pre-wrap break-words border border-gray-300">
                 {getFilteredResponse()}
               </pre>
             </div>
@@ -161,6 +161,7 @@ function App() {
       </div>
     </div>
   );
+  
 }
 
 export default App;
