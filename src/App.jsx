@@ -81,7 +81,7 @@ function App() {
     <div className="min-h-screen bg-teal-50 text-gray-900 flex items-center justify-center p-4">
       <div className="w-full max-w-2xl space-y-8">
         <h1 className="text-3xl font-bold text-center text-green-600">Bajaj Api Round</h1>
-        <h2>0101CS211136</h2>
+        <h2 className="text-3xl font-bold text-center text-green-900">0101CS211136</h2>
   
         <div className="space-y-4 bg-white p-6 rounded-xl shadow-lg">
           <div className="space-y-2">
